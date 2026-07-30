@@ -1,0 +1,42 @@
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnements virtuels
+venv/
+env/
+*.env
+
+# Fichiers de configuration locaux
+*.sqlite3
+db.sqlite3
+*.log
+
+# Fichiers générés par Django
+*.pot
+*.mo
+
+# Migrations (optionnel, si vous ne voulez pas les versionner)
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Fichiers statiques et médias
+staticfiles/
+media/
+
+# Cache et fichiers temporaires
+*.tmp
+*.swp
+*.bak
+
+# Outils et IDE
+.vscode/
+.idea/
+*.iml
+
+# Tests et couverture
+.coverage
+htmlcov/
+*.pytest_cache/
