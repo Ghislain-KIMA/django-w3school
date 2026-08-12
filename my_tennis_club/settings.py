@@ -100,16 +100,61 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': "neondb",
+#         "USER": "neondb_owner",
+#         "PASSWORD": "npg_BYOjyRpq0sf1",
+#         "HOST": "@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech",
+#         "PORT": "5432",
+#     }
+# }
+
+# import dj_database_url
+
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         "postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+#     )
+# }
+
+# import os
+# import dj_database_url
+
+
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         os.environ.get("DATABASE_URL", "postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require")
+#     )
+# }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'npg_BYOjyRpq0sf1',
+        'HOST': 'ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'}
+    }
+}
+
+
+
+# postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
 
 # --- CONFIGURATION DE LA BASE DE DONNÉES ---
-DATABASES = {
-    'default': dj_database_url.config(
-        # Si DATABASE_URL n'existe pas (en local), utilise SQLite par défaut pour coder hors ligne
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Si DATABASE_URL n'existe pas (en local), utilise SQLite par défaut pour coder hors ligne
+#         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
+# }
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "https://*.onrender.com").split(",")
 
