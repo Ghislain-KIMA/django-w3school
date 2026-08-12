@@ -1,9 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+    <head>
+        {% comment %} <link rel="stylesheet" href="{% static 'myfirst.css' %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+    </head>
     <body>
-        {% for x in fruits %}
-            <h1>{{ x }}</h1>
+        {{ mymembers }}
+        <p>----------------------------------</p>
+        {% for member in mymembers %}
+        <p>{{ member }}</p>
         {% endfor %}
-        <p>In views.py you can see what the fruits vaviable looks like</p>
     </body>
 </html>
