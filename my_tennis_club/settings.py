@@ -88,45 +88,20 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': "neondb",
-#         "USER": "neondb_owner",
-#         "PASSWORD": "npg_BYOjyRpq0sf1",
-#         "HOST": "@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech",
-#         "PORT": "5432",
-#     }
-# }
-
-# import dj_database_url
-
-# DATABASES = {
-#     'default': dj_database_url.parse(
-#         "postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-#     )
-# }
-
-# import os
-# import dj_database_url
 
 
-# DATABASES = {
-#     'default': dj_database_url.parse(
-#         os.environ.get("DATABASE_URL", "postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require")
-#     )
-# }
+
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
-        'USER': 'neondb_owner',
-        'PASSWORD': 'npg_BYOjyRpq0sf1',
-        'HOST': 'ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech',
+        'NAME': "",
+        'USER': "",
+        'PASSWORD': "",
+        'HOST': "",
         'PORT': '5432',
-        'OPTIONS': {'sslmode': 'require'}
+        'OPTIONS': {}
     }
 }
 
