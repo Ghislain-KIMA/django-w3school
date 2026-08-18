@@ -13,27 +13,19 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 # import dj_database_url
-from dotenv import load_dotenv # Optionnel : pour charger le .env en local
+from dotenv import load_dotenv
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Charger le fichier .env si vous êtes en local
 load_dotenv(os.path.join(BASE_DIR, ".env"))
-
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get('DEBUG', 'False')
 
-# ALLOWED_HOSTS = [
-#     "*",
-#     # '127.0.0.1',
-#     # 'localhost'
-# ]
-# Autoriser l'URL de votre site Render et localhost
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 # Application definition
 
@@ -78,46 +70,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
-
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "",
-        'USER': "",
-        'PASSWORD': "",
-        'HOST': "",
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
         'OPTIONS': {}
     }
 }
 
-
-
-# postgresql://neondb_owner:npg_BYOjyRpq0sf1@ep-silent-union-ay8u7hpq-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
-
-# --- CONFIGURATION DE LA BASE DE DONNÉES ---
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         # Si DATABASE_URL n'existe pas (en local), utilise SQLite par défaut pour coder hors ligne
-#         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-#         conn_max_age=600,
-#         conn_health_checks=True,
-#     )
-# }
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "https://*.onrender.com").split(",")
 
