@@ -1,46 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
 
+
+
 ROOT_TEMPLATE = "members"
 
 
-# def members(request):
-#     return HttpResponse("Hello world!")
-
-# def members(request):
-#     template = loader.get_template(f"{ROOT_TEMPLATE}/index.html")
-#     return HttpResponse(template.render())
 
 def members(request):
-    mymembers = Member.objects.all().values()
-    template = loader.get_template(f"{ROOT_TEMPLATE}/all_members.html")
     context = {
-        "mymembers": mymembers
+        "mymembers": Member.objects.all()
     }
-
-    return HttpResponse(template.render(context, request))
+    return render(request, f"{ROOT_TEMPLATE}/all_members.html", context)
 
 
 def details(request, id):
-    mymember = Member.objects.get(id=id)
-    template = loader.get_template(f"{ROOT_TEMPLATE}/details.html")
     context = {
-        "mymember": mymember
+        "mymember": get_object_or_404(Member, pk=id)
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, f"{ROOT_TEMPLATE}/details.html", context)
 
 
 def main(request):
-    template = loader.get_template(f"{ROOT_TEMPLATE}/main.html")
-    return HttpResponse(template.render())
+    return render(request, f"{ROOT_TEMPLATE}/main.html")
 
 
 def testing(request):
-    mydata = Member.objects.all().values()
-    template = loader.get_template('template.html')
     context = {
-        'mymembers': mydata,
+        'mymembers': Member.objects.all().values(),
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'template.html', context)

@@ -10,8 +10,8 @@
     </head>
     <body>
         <div class="topnav">
-            <a href="/members">Home</a>
-            <a href="#">Members</a>
+            <a href='{% url "main" %}'>Home</a>
+            <a href='{% url "members" %}'>Members</a>
         </div>
         {% block content %}
         {% endblock %}

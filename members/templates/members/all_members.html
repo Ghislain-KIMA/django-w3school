@@ -9,9 +9,13 @@
   <div class="mycard">
     <h1>Members</h1>
     <ul>
-      {% for x in mymembers %}
-        <li onclick="window.location = 'details/{{ x.id }}'">{{ x.firstname }} {{ x.lastname }}</li>
-      {% endfor %}
+      {% if mymembers %}
+        {% for x in mymembers %}
+          <li onclick="window.location = 'details/{{ x.id }}'">
+            {{ x.id }} {{ x.firstname }} {{ x.lastname }}
+          </li>
+        {% endfor %}
+      {% endif %}
     </ul>
   </div>
 {% endblock %}
