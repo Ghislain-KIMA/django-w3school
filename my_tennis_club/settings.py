@@ -11,22 +11,26 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 
-
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
+import environ
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+env = environ.Env(
+    DEBUG=(bool, False),
+    ALLOWED_HOSTS=(list, ["127.0.0.1", "localhost"]),
+    CSRF_TRUSTED_ORIGINS=(list, ['http://127.0.0.1:8000', 'http://localhost:8000']),
+)
 
-DEBUG = os.environ.get('DEBUG', 'False')
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
 
 
 INSTALLED_APPS = [
@@ -73,18 +77,8 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-    }
+    'default': env.db("DATABASE_URL")
 }
-
-
-CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "https://*.onrender.com").split(",")
 
 
 # Password validation
