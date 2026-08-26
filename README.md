@@ -1,6 +1,6 @@
 # 🎾 My Tennis Club — Gestion des Membres (Django)
 
-Application web développée avec **Django** pour gérer l'annuaire des membres d'un club de tennis.
+**Travaux Pratiques:** Application web développée avec **Django** pour gérer l'annuaire des membres d'un club de tennis.
 
 ---
 
@@ -44,7 +44,7 @@ Application web développée avec **Django** pour gérer l'annuaire des membres 
 │           ├── member.html
 │           └── members.html
 │
-├── mystaticfiles/              # Styles globaux (myglobal.css, mystyles.css)
+├── static/              # Styles globaux (myglobal.css, mystyles.css)
 └── templates/                  # Templates globaux
     ├── base.html
     ├── 404.html
