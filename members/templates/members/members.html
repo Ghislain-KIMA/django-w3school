@@ -12,14 +12,11 @@
     <ul>
       {% if mymembers %}
         {% for x in mymembers %}
-          <li onclick="window.location = '{% url "" x.slug %}'">
-            {{ x.id }} {{ x.firstname }} {{ x.lastname }}
-          </li>
-          <li>
-          {% comment %} <a href="{% url 'member_detail' x.slug %}">
-            {{ x.firstname }} {{ x.lastname }}
-            </a>
-          </li> {% endcomment %}
+          <a href="{% url "member" x.slug %}">
+            <li>
+              {{ x.firstname }} {{ x.lastname }}
+            </li>
+          </a>
         {% endfor %}
       {% endif %}
     </ul>

@@ -14,11 +14,11 @@ def members(request):
     return render(request, f"{TEMPLATE_DIR}/members.html", context)
 
 
-def details(request, slug):
+def member(request, slug):
     context = {
         "mymember": get_object_or_404(Member, slug=slug)
     }
-    return render(request, f"{TEMPLATE_DIR}/details.html", context)
+    return render(request, f"{TEMPLATE_DIR}/member.html", context)
 
 
 def main(request):
