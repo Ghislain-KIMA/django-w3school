@@ -1,30 +1,28 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
 
 
-
-ROOT_TEMPLATE = "members"
-
+TEMPLATE_DIR = "members"
 
 
 def members(request):
     context = {
         "mymembers": Member.objects.all()
     }
-    return render(request, f"{ROOT_TEMPLATE}/all_members.html", context)
+    return render(request, f"{TEMPLATE_DIR}/members.html", context)
 
 
-def details(request, id):
+def details(request, slug):
     context = {
-        "mymember": get_object_or_404(Member, pk=id)
+        "mymember": get_object_or_404(Member, slug=slug)
     }
-    return render(request, f"{ROOT_TEMPLATE}/details.html", context)
+    return render(request, f"{TEMPLATE_DIR}/details.html", context)
 
 
 def main(request):
-    return render(request, f"{ROOT_TEMPLATE}/main.html")
+    return render(request, f"{TEMPLATE_DIR}/home.html")
 
 
 def testing(request):

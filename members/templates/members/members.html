@@ -1,4 +1,5 @@
-{% extends "members/master.html" %}
+{% extends "base.html" %}
+
 
 {% block title %}
   My Tennis Club - List of all members
@@ -11,9 +12,14 @@
     <ul>
       {% if mymembers %}
         {% for x in mymembers %}
-          <li onclick="window.location = 'details/{{ x.id }}'">
+          <li onclick="window.location = '{% url "" x.slug %}'">
             {{ x.id }} {{ x.firstname }} {{ x.lastname }}
           </li>
+          <li>
+          {% comment %} <a href="{% url 'member_detail' x.slug %}">
+            {{ x.firstname }} {{ x.lastname }}
+            </a>
+          </li> {% endcomment %}
         {% endfor %}
       {% endif %}
     </ul>
