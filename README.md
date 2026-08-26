@@ -1,6 +1,6 @@
 # 🎾 My Tennis Club — Gestion des Membres (Django)
 
-Application web développée avec **Django** pour gérer l'annuaire des membres d'un club de tennis, incluant la génération automatique de slugs SEO-friendly, des fiches détaillées, la gestion des fichiers statiques et une commande d'administration personnalisée pour peupler la base de données.
+Application web développée avec **Django** pour gérer l'annuaire des membres d'un club de tennis.
 
 ---
 
@@ -58,7 +58,8 @@ Application web développée avec **Django** pour gérer l'annuaire des membres 
 ### 1. Activer l'environnement Conda
 
 ```bash
-conda activate django-w3school-tp
+conda activate <env-name>
+pip install -r requirements.txt
 ```
 
 ### 2. Appliquer les migrations de base de données
@@ -109,18 +110,3 @@ python manage.py collectstatic
 ```bash
 python manage.py shell
 ```
-
-```
-
----
-
-<ElicitationsGroup message="Souhaites-tu effectuer d'autres ajustements sur ton projet ?">
-  <Elicitation label="Ajouter un fichier .gitignore approprié au projet" query="Génère un fichier .gitignore complet adapté à ce projet Django, VS Code et Conda."/>
-  <Elicitation label="Créer un script d'initialisation rapide du projet" query="Crée un script bash d'une seule ligne pour automatiser les migrations, le seed et le lancement du serveur."/>
-</ElicitationsGroup>
-```
-
-
-## Commandes de déployement sur render
-
-pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate  # L'option `--noinput` permet d'exécuter `collectstatic` en mode automatique sans demander de confirmation dans le terminal de Render.
