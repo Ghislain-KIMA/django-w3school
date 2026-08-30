@@ -1,0 +1,30 @@
+/* Forcer le calcul des tailles en incluant le padding et les bordures. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Supprimer les marges et penddings par défaut de tous les éléments. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Assurer que le body prend toute la hauteur sans marges parasites. */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font: 600 18px 'Source Sans Pro', sans-serif;
+    letter-spacing: 0.64px;
+    color: #585d74;
+}
+
+/* 4. Rendre les images réactives pour éviter les débordements */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Harmoniser la typographie des formulaires avec le reste du site */
+input, button, textarea, select {
+  font: inherit;
+}

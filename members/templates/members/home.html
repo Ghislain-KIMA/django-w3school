@@ -1,8 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static "css/pages/home.css" %}"></link>
+  {% comment %} <link rel="stylesheet" href="{% static "css/pages/components.css" %}"></link> {% endcomment %}
+{% endblock extra_css %}
+
 
 {% block title %}
   My Tennis Club
 {% endblock %}
+
 
 {% block content %}
   <div class="main">

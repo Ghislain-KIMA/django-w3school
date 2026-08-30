@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% comment %} {% extends "base.html" %}
 
 {% block title %}
   Erreur serveur
@@ -10,4 +10,54 @@
         <p>Nos équipes ont été notifiées. Veuillez réessayer plus tard.</p>
         <a href="{% url "main" %}">Retourner à l'accueil</a>
     </div>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur serveur - My Tennis Club</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .error-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 400px;
+        }
+        .error-card h1 { font-size: 3rem; color: #ef4444; margin: 0; }
+        .error-card h2 { font-size: 1.25rem; margin-top: 0.5rem; }
+        .error-card p { color: #4b5563; font-size: 0.95rem; }
+        .btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <h1>500</h1>
+        <h2>Une erreur est survenue</h2>
+        <p>Notre équipe a été notifiée. Veuillez réessayer d'accéder à la page ultérieurement.</p>
+        <a href="{% url "main" %}" class="btn">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

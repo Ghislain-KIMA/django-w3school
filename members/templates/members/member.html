@@ -1,8 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/pages/members.css' %}"></link>
+  <link rel="stylesheet" href="{% static 'css/pages/components.css' %}"></link>
+{% endblock extra_css %}
+
 
 {% block title %}
   Details about {{ mymember.firstname }} {{ mymember.lastname }}
 {% endblock %}
+
 
 {% block content %}
   <div class="mycard">

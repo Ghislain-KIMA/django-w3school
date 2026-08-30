@@ -1,0 +1,34 @@
+.topnav {
+    background-color:#375BDC;
+    color : white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topnav a:link, .topnav a:visited {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.topnav-left {
+    margin-right: 15px;
+}
+
+.topnav a:hover, .topnav a:active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.topnav-right {
+  font-weight: bold;
+  /* text-transform: uppercase; */
+  opacity: 0.8;
+}

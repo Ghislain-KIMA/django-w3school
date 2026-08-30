@@ -1,18 +1,28 @@
 {% load static %}
 
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <link rel="stylesheet" href="{% static "mystyles.css" %}">
+        <meta charset="UTF-8">
         <title>
             {% block title %}
             {% endblock %}
         </title>
+        <link rel="stylesheet" href="{% static "css/main.css" %}">
+        {% block extra_css %}{% endblock %}
     </head>
     <body>
         <div class="topnav">
-            <a href='{% url "main" %}'>Home</a>
-            <a href='{% url "members" %}'>Members</a>
+            <div class="topnav-left">
+                <a href='{% url "main" %}'>Home</a>
+                <a href='{% url "members" %}'>Members</a>
+            </div>
+            <div class="topnav-right">
+                <a href="https://github.com/Ghislain-KIMA" class="github-link" target="_blank" rel="noopener noreferrer">
+                    Ghislain KIMA
+                </a>
+            </div>
         </div>
         {% block content %}
         {% endblock %}

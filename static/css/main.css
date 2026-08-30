@@ -1,0 +1,8 @@
+/* BASE (Configuration & Reset) */
+@import url("./base/reset.css");
+@import url("./base/variables.css");
+
+
+/* COMPOSANTS (Éléments réutilisables) */
+@import url('./components/header.css');
+
